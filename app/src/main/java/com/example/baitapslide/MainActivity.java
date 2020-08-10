@@ -14,17 +14,18 @@ public class MainActivity extends AppCompatActivity {
             drawable.h2,
             drawable.h3
     };
-    Button btBack, btNext;
-    int dem = 0, count = 1;
+    Button btnPrev, btnNext;
+    int dem = 0, count = 0;
     int[] array;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
         imgV = findViewById(id.imgView);
-        btBack = findViewById(id.btLeft);
-        btNext = findViewById(id.btRight);
+        btnPrev = findViewById(id.btLeft);
+        btnNext = findViewById(id.btRight);
         array = new int[4];
         final CountDownTimer countDownTimer = new CountDownTimer(7000, 2000) {
             @Override
@@ -40,12 +41,35 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         countDownTimer.start();
-        btNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnNext.setOnClickListener(view -> {
+            switch (count) {
+                case 0:
+                    imgV.setImageResource(drawable.hinh1);
+                    count++;
+                    break;
+                case 1:
+                    imgV.setImageResource(drawable.h1);
+                    count++;
+                    break;
+                case 2:
+                    imgV.setImageResource(drawable.h2);
+                    count++;
+                    break;
+                case 3:
+                    imgV.setImageResource(drawable.h3);
+                    count = 0;
+                    break;
+            }
+        });
+
+        btnPrev.setOnClickListener(v -> {
                 switch (count) {
+                    case 0:
+                        imgV.setImageResource(R.drawable.h3);
+                        count++;
+                        break;
                     case 1:
-                        imgV.setImageResource(R.drawable.hinh1);
+                        imgV.setImageResource(drawable.hinh1);
                         count++;
                         break;
                     case 2:
@@ -54,14 +78,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         imgV.setImageResource(R.drawable.h2);
-                        count++;
-                        break;
-                    case 4:
-                        imgV.setImageResource(R.drawable.h3);
                         count = 0;
                         break;
+
                 }
-            }
         });
 
         // anh thêm đại vô để có sự thây đổi để mà up lên git
