@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/hinh1" />
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:background="@drawable/iconleft"
+        android:id="@+id/btLeft"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        />
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:background="@drawable/iconright"
+        android:id="@+id/btRight"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"
+        />
+</RelativeLayout>
